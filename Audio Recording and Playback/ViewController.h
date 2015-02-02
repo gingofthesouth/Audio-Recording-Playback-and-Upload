@@ -7,8 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<AVAudioRecorderDelegate, AVAudioPlayerDelegate, NSURLSessionTaskDelegate>
+{
+    AVAudioRecorder *audioRecorder;
+    AVAudioPlayer *audioPlayer;
+}
+
+@property (nonatomic, retain) AVAudioRecorder *audioRecorder;
+@property (strong, nonatomic) NSUserDefaults *defaults;
+
+@property (strong, retain) NSString *audioFilePath;
 
 
 @end
